@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import axios from "axios";
 import React, { useState } from "react";
-import User from "../components/user";
 import { v4 as uuidv4 } from "uuid";
+import { useLoaderData } from "react-router-dom";
+import UsersList from "../components/user-list";
 
 export default class Home extends React.Component {
 
@@ -20,13 +21,13 @@ export default class Home extends React.Component {
 
     render() {
         return (
-                <section className="mt-5">
-                    <div className="container">
-                        <div className="row">
-                            {this.state.users.map(user => (<User key={uuidv4()} user={user} />))}
-                        </div>
+            <section className="mt-5">
+                <div className="container">
+                    <div className="row">
+                        {this.state.users.map(user => (<UsersList key={uuidv4()} user={user} />))}
                     </div>
-                </section>
+                </div>
+            </section>
         )
     } 
 }

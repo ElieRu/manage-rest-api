@@ -1,8 +1,12 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
+import { useParams } from "react-router-dom"
 
-function User({user}) {
-    return <div className="col-12 col-md-4 mb-3">
+
+function UsersList ({user}) {
+
+    return <div className="col-12 col-md-6 mb-3">
                 <div className="border rounded p-2">
                     <div className="row">
                         <div className="col-3 d-flex flex-column justify-content-center">
@@ -12,7 +16,9 @@ function User({user}) {
                             </div>
                         </div>
                         <div className="col-9">
-                            <h4 style={{textDecoration: 'underline'}}>{user.name}</h4>
+                            <h4 style={{textDecoration: 'underline'}}>
+                                <a href={"/users/" + user.id}>{user.name}</a>
+                            </h4>
                             <div className="row">
                                 <div className="col"><span className="text-body text-opacity-50">{user.username}</span></div>
                                 <div className="col text-end"><span className="text-body text-opacity-50">{user.email}</span></div>
@@ -23,5 +29,5 @@ function User({user}) {
             </div>
 }
 
-export default User
+export default UsersList
 

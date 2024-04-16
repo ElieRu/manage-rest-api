@@ -17,7 +17,7 @@ function UsersList ({user}) {
                         </div>
                         <div className="col-9">
                             <h4 style={{textDecoration: 'underline'}}>
-                                <a href={"/users/" + user.id}>{user.name}</a>
+                                <a href={"/users/" + JSON.stringify(user) }>{user.name}</a>
                             </h4>
                             <div className="row">
                                 <div className="col"><span className="text-body text-opacity-50">{user.username}</span></div>

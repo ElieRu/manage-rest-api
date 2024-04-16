@@ -25,8 +25,8 @@ function App() {
           />
 
           <Route 
-            path="/users/:id" 
-            element={ <Users data="billy"/> }
+            path="/users/:user" 
+            element={ <Users /> }
           />
 
           <Route path="/projects" element={<p>Projects</p>}></Route>

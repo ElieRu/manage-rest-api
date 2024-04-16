@@ -2,7 +2,6 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { useLoaderData } from "react-router-dom";
 import UsersList from "../components/user-list";
 
 export default class Home extends React.Component {

@@ -1,0 +1,19 @@
+#user-infos {
+  height: 60px;
+  overflow: hidden;
+}
+
+#user-profile {
+  height: 50px;
+  width: 50px;
+}
+
+#box-img {
+  margin-bottom: 10px;
+  height: 230px;
+  overflow: hidden;
+}
+
+#para-desc {
+  font-size: 13px;
+}

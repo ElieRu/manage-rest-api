@@ -1,10 +1,13 @@
+import axios from "axios";
 import { useParams } from "react-router-dom";
 
 
-function Users() {
+function Post() {
 
     let id = JSON.parse(useParams().id);
 
+    // let comments = axios.get()
+    console.log(id);
 
     return (<section className="mt-5">
                 <div className="container">
@@ -16,4 +19,4 @@ function Users() {
         );
 }
 
-export default Users;
+export default Post;

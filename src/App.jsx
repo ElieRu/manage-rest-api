@@ -1,10 +1,10 @@
 
-import { BrowserRouter, Routes, Route, json } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Header from "./components/nav"
 import Home from "./pages/home"
 import Footer from "./components/footer"
-import axios from "axios"
 import Users from "./pages/users"
+import Post from "./pages/post"
 
 function App() {
   return <div id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
@@ -14,21 +14,9 @@ function App() {
       <div className="content">
         <BrowserRouter>
         <Routes>
-          <Route 
-            index 
-            path="/" 
-            element={ <Home/> }
-            loader={async () => {
-              let data = await axios.get(`https://jsonplaceholder.typicode.com/users`)
-              return json(data)
-            }}
-          />
-
-          <Route 
-            path="/users/:user" 
-            element={ <Users /> }
-          />
-
+          <Route index path="/" element={ <Home/> } />
+          <Route path="/post/:id" element={ <Post /> } />
+          <Route path="/user/:id" element={ <Users /> } />
           <Route path="/projects" element={<p>Projects</p>}></Route>
           <Route path="/about" element={<p>About</p>}></Route>
         </Routes>

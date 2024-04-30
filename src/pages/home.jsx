@@ -1,17 +1,13 @@
 /* eslint-disable no-unused-vars */
 
-import { useState } from "react";
-import Posts from "../components/posts.jsx";
+import { useId, useState } from "react";
+import Posts from "../components/posts/posts.jsx";
 import { useNetworkState } from "@uidotdev/usehooks";
-import Search from "../components/search.jsx";
+import Search from "../components/posts/search.jsx";
 
 export default function Home () {
 
-    // const [search, setSearch] = useState("")
-
-    // const handleChange = (e) => {
-    //     setSearch(e.target.value) 
-    // }
+    // console.log(useId());
 
     const network = useNetworkState()
 

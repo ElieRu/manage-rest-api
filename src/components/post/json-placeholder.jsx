@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import axios from "axios";
 import React from "react";
+import UserDatas from "../users/user-datas";
 
 function get_data(datas, id) {
     for (let i = 0; i < datas.length; i++) {
@@ -43,7 +44,9 @@ export class Place extends React.Component {
                         <div>
                             <form><textarea className="form-control mb-2" style={{resize: 'none'}} placeholder="Comment this post"></textarea><button className="btn btn-primary" type="submit">Comment</button></form>
                         </div>
-                    </>      
+                    </>
+            case 'users':
+                return <UserDatas datas={this.state.datas} address={this.state.datas.address} />
             default:
                 break;
         }

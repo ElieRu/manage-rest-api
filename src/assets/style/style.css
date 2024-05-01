@@ -26,3 +26,24 @@
   width: 40px;
   height: 32px;
 }
+
+#div-add {
+  font-size: 13px;
+  margin-top: 15px;
+  width: 90%;
+}
+
+#text-add {
+  font-size: 10px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#div-com {
+  margin-top: 15px;
+  width: 90%;
+  margin-bottom: 15px;
+  font-size: 13px;
+}

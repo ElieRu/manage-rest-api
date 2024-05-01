@@ -7,8 +7,8 @@ export default function Search () {
         setSearch(e.target.value) 
     }
     
-    return <div className="mb-3 row">
-            <div className="col-12 col-md-7 col-lg-8"></div>
+    return <div className="row mb-3">
+            <div className="col-12 col-md-7 col-lg-8">span</div>
             <div className="col-0 col-md-5 col-lg-4">
                 <input type="search" 
                     value={search} 

@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
-import UserDatas from "../components/users/user-datas";
-import { Place } from "../components/post/json-placeholder";
+import { JsonPlaceholder } from "../components/post/json-placeholder";
 
 
 function Users() {
@@ -11,11 +10,12 @@ function Users() {
     <div className="container">
         <div className="row flex-column flex-sm-row">
             <div className="col-12 col-sm-6 col-md-4">
-                {/* <UserDatas userId={userId} /> */}
-                <Place data='users' id={userId} />
+                <JsonPlaceholder data='users' id={userId} />
             </div>
             <div className="col-12 col-sm-6 col-md-8">
-                <div className="border rounded p-2"></div>
+                <div className="border rounded p-2">
+                    <a href={`albums/${userId}/`}>Album</a>
+                </div>
             </div>
         </div>
     </div>

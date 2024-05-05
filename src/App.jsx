@@ -2,36 +2,59 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Header from "./components/nav"
 
-import Home from "./pages/home"
-
 import Footer from "./components/footer"
 import Users from "./pages/users"
 import Post from "./pages/post"
 import React, { Suspense } from "react"
+import Photos from "./pages/photos"
+// import Home from "./pages/home"
+import Loading from "./components/posts/loading"
 // import About from "./pages/about"
+import GetLoading from "./pages/getLoading"
 
-const LazyAbout = React.lazy(() => import("./pages/About.js"))
+
+const Home = React.lazy(() => import("./pages/home"))
+const LazyAbout = React.lazy(() => import("./pages/getLoading"))
+const Albums = React.lazy(() => import("./pages/albums"))
+const About = React.lazy(() => import("./pages/about"))
 
 function App() {
   return <div id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
-    <div className="container-fluid">
+    <div className="container">
+      
       <Header></Header>
       
       <div className="content">
         <BrowserRouter>
         <Routes>
-          <Route index path="/" element={ <Home/> } />
-          
-          <Route path="/about" element={
-            <Suspense fallback={<div style={{marginTop: '200px'}}>Loading...</div>}>
-              <LazyAbout/>
+
+          <Route index path="/" element={
+            <Suspense fallback={<Loading/>}>
+              <Home/>
             </Suspense> }>
           </Route>
 
           <Route path="/post/:id" element={ <Post /> } />
           <Route path="/user/:id" element={ <Users /> } />
-          <Route path="/projects" element={<p>Projects</p>}></Route>
-          <Route path="/about" element={<p>About</p>}></Route>
+          
+          <Route path="/user/albums/:id" element={ 
+            <Suspense fallback={<div style={{marginTop: '200px'}}>Loading...</div>}>
+              <Albums/>
+            </Suspense>
+          }> </Route>
+
+          <Route path="/user/albums/photos/:id" element={ 
+            <Suspense fallback={<div style={{marginTop: '200px'}}>Loading...</div>}>
+              <Photos/>
+            </Suspense>
+          }> </Route>
+
+          <Route path="/about" element={ 
+            <Suspense fallback={ <GetLoading/> }>
+              <About/>
+            </Suspense>
+          }> </Route>
+          
         </Routes>
       </BrowserRouter>
       </div>

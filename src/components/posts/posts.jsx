@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import axios from "axios"
 import React from "react";
 import PostComponent from "./posts-component";
@@ -42,7 +43,7 @@ export default class Posts extends React.Component {
                     this.setState({
                         loading: true
                     })
-                }, 0)
+                }, 5000)
             })
             .catch((err) => {
                 console.log(err);

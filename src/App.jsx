@@ -11,6 +11,7 @@ import Photos from "./pages/photos"
 import Loading from "./components/posts/loading"
 // import About from "./pages/about"
 import GetLoading from "./pages/getLoading"
+import Todos from "./pages/todos"
 
 
 const Home = React.lazy(() => import("./pages/home"))
@@ -46,6 +47,12 @@ function App() {
           <Route path="/user/albums/photos/:id" element={ 
             <Suspense fallback={<div style={{marginTop: '200px'}}>Loading...</div>}>
               <Photos/>
+            </Suspense>
+          }> </Route>
+
+          <Route path="/user/todos/:userId" element={ 
+            <Suspense fallback={<div style={{marginTop: '200px'}}>Loading...</div>}>
+              <Todos/>
             </Suspense>
           }> </Route>
 

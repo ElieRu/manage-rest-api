@@ -5,30 +5,36 @@ import UserDatas from "../users/user-datas";
 import ListAlbums from "../albums/list";
 import ListPhotos from "../photos/list";
 import Loading from "../posts/loading";
+import ListTodos from "../todos/lists";
+
+function sort_datas (datas, id) {
+    let all_datas = []
+    for (let i = 0; i < datas.length; i++) {
+        if (datas[i].userId === id) {
+            all_datas.push(datas[i]);
+        }
+    }
+    return all_datas
+}
+
+function select_data(datas, id) {
+    for (let i = 0; i < datas.length; i++) {
+        if (datas[i].id === id) {
+            return datas[i];
+        }
+    }
+}
 
 function get_data(table, datas, id) {
-    let albums = []
-    let photos = []
-    if (table == 'albums') {
-        for (let i = 0; i < datas.length; i++) {
-            if (datas[i].userId === id) {
-                albums.push(datas[i]);
-            }
-        }
-        return albums
-    } else if (table == 'photos') {
-        for (let i = 0; i < datas.length; i++) {
-            if (datas[i].albumId === id) {
-                photos.push(datas[i]);
-            }
-        }
-        return photos
-    } else {
-        for (let i = 0; i < datas.length; i++) {
-            if (datas[i].id === id) {
-                return datas[i];
-            }
-        }
+    switch (table) {
+        case 'albums' || 'photos' || 'todos':
+            sort_datas(datas, id)
+            break;
+        case 'users':
+            select_data(datas, id)
+            break;
+        default:
+            break;
     }
 }
 
@@ -51,8 +57,10 @@ export class JsonPlaceholder extends React.Component {
             let datas = response.data;
             
             let table = 
+                this.data == 'posts' ? 'posts' : 
                 this.data == 'albums' ? 'albums' : 
                 this.data == 'photos' ? 'photos' : 
+                this.data == 'todos' ? 'todos' : 
                 null;
 
             this.setState({
@@ -82,13 +90,19 @@ export class JsonPlaceholder extends React.Component {
                         </div>
                     </>
             case 'users':
-                return <UserDatas datas={this.state.datas} address={this.state.datas.address} />
+                return <UserDatas datas={this.state.datas} />
             case 'albums':
                 if (this.state.loading) {
                     return <ListAlbums datas={this.state.datas} />
                 } else {
                     return <Loading />
-                }                
+                }
+            case 'todos':
+                if (this.state.loading) {
+                    return <ListTodos datas={this.state.datas} />
+                } else {
+                    return <Loading />
+                }
             case 'photos':
                 if (this.state.loading) {
                     return <ListPhotos datas={this.state.datas} />

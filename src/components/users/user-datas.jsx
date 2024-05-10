@@ -1,10 +1,10 @@
 
 
-export default function UserDatas({datas, address}) {
-    let companies = datas.company;
-    let adresses = datas.address;
+export default function UserDatas({datas}) {
+    // let companies = datas.company;
+    // let adresses = datas.address;
 
-    // console.log(address);
+    console.log(datas);
     
     return <div className="bg-secondary-subtle border rounded border-0 shadow d-flex flex-column justify-content-center align-items-center p-2">
     <div className="d-flex justify-content-center align-items-center" style={{width: '150px',height: '150px',marginTop: '20px',marginBottom: '20px'}}>

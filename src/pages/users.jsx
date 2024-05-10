@@ -13,8 +13,11 @@ function Users() {
                 <JsonPlaceholder data='users' id={userId} />
             </div>
             <div className="col-12 col-sm-6 col-md-8">
-                <div className="border rounded p-2">
+                <div className="border rounded p-2 mb-2">
                     <a href={`albums/${userId}/`}>Album</a>
+                </div>
+                <div className="border rounded p-2">
+                    <a href={`todos/${userId}/`}>Todos</a>
                 </div>
             </div>
         </div>

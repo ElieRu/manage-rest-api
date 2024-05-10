@@ -5,7 +5,7 @@ import { useNetworkState } from "@uidotdev/usehooks";
 
 export default function Home () {
 
-    const network = useNetworkState()
+    const network = useNetworkState()    
 
     return <section className="mt-5">
             <div className="container">

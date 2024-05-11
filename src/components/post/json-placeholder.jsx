@@ -2,18 +2,22 @@
 import axios from "axios";
 import React from "react";
 import UserDatas from "../users/user-datas";
-import ListAlbums from "../albums/list";
-import ListPhotos from "../photos/list";
+import ListAlbums from "../albums/albums-list";
+import ListPhotos from "../photos/photos-list";
 import Loading from "../posts/loading";
 import ListTodos from "../todos/lists";
+import Home from "../../pages/home";
+import Posts from "../posts";
 
-function sort_datas (datas, id) {
+function sort_datas (datas, id = null) {
     let all_datas = []
+    
     for (let i = 0; i < datas.length; i++) {
-        if (datas[i].userId === id) {
+        if (datas[i] === id) {
             all_datas.push(datas[i]);
         }
     }
+    
     return all_datas
 }
 
@@ -27,6 +31,9 @@ function select_data(datas, id) {
 
 function get_data(table, datas, id) {
     switch (table) {
+        case 'posts':
+            sort_datas(datas);
+            break;
         case 'albums' || 'photos' || 'todos':
             sort_datas(datas, id)
             break;
@@ -56,22 +63,18 @@ export class JsonPlaceholder extends React.Component {
         .then((response) => {
             let datas = response.data;
             
-            let table = 
-                this.data == 'posts' ? 'posts' : 
-                this.data == 'albums' ? 'albums' : 
-                this.data == 'photos' ? 'photos' : 
-                this.data == 'todos' ? 'todos' : 
-                null;
-
             this.setState({
-                datas: get_data(table, datas, this.id)
+                // datas: get_data(this.data, datas, this.id)
+                datas: datas
             });
+
+            // console.log(this.state.datas);
 
             setTimeout(() => {
                 this.setState({
                     loading: true
                 })
-            }, 1000);
+            }, 0);
             
         })
 
@@ -80,15 +83,11 @@ export class JsonPlaceholder extends React.Component {
     render () {
         switch (this.data) {
             case 'posts':
-                return <>
-                        <div>
-                            <h4 className="title-post text-capitalize">{this.state.datas.title}.</h4>
-                            <p className="text-capitalize">{this.state.datas.body}.</p>
-                        </div>
-                        <div>
-                            <form><textarea className="form-control mb-2" style={{resize: 'none'}} placeholder="Comment this post"></textarea><button className="btn btn-primary" type="submit">Comment</button></form>
-                        </div>
-                    </>
+                if (this.state.loading) {
+                    return <Posts posts={this.state.datas} />
+                } else {
+                    return <Loading />
+                }
             case 'users':
                 return <UserDatas datas={this.state.datas} />
             case 'albums':

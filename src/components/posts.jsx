@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-export default function PostComponent({posts}) {
+export default function Posts({posts}) {
     return <div className="row">
                 {posts.map(post => (<div key={post.id} className="col-12 col-md-6 col-lg-4 mb-3">
                     <div className="card">

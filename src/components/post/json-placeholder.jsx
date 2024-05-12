@@ -9,16 +9,30 @@ import ListTodos from "../todos/lists";
 import Home from "../../pages/home";
 import Posts from "../posts";
 
-function sort_datas (datas, id = null) {
+function get_data (name, datas, id = null) {
+
     let all_datas = []
-    
-    for (let i = 0; i < datas.length; i++) {
-        if (datas[i] === id) {
+
+    if (id === null) {
+        for (let i = 0; i < datas.length; i++) {
             all_datas.push(datas[i]);
         }
-    }
-    
-    return all_datas
+        return all_datas
+    } else {
+        if (name == 'users') {
+            for (let i = 0; i < datas.length; i++) {
+                if (datas[i].id === id) {
+                    return datas[i];
+                }
+            }
+        } else if (name == 'albums') {
+            for (let i = 0; i < datas.length; i++) {
+                if (datas[i].userId === id) {
+                    return datas[i];
+                }
+            }
+        }
+    }    
 }
 
 function select_data(datas, id) {
@@ -29,21 +43,21 @@ function select_data(datas, id) {
     }
 }
 
-function get_data(table, datas, id) {
-    switch (table) {
-        case 'posts':
-            sort_datas(datas);
-            break;
-        case 'albums' || 'photos' || 'todos':
-            sort_datas(datas, id)
-            break;
-        case 'users':
-            select_data(datas, id)
-            break;
-        default:
-            break;
-    }
-}
+// function get_data(table, datas, id) {
+//     switch (table) {
+//         case 'posts':
+//             sort_datas(datas);
+//             break;
+//         case 'albums' || 'photos' || 'todos':
+//             sort_datas(datas, id)
+//             break;
+//         case 'users':
+//             select_data(datas, id)
+//             break;
+//         default:
+//             break;
+//     }
+// }
 
 
 export class JsonPlaceholder extends React.Component {
@@ -53,22 +67,21 @@ export class JsonPlaceholder extends React.Component {
             datas: [],
             loading: false
         }
-        this.data = props.data
+        this.name = props.data
         this.id = props.id
     }
 
     componentDidMount () {
         
-        axios.get(`https://jsonplaceholder.typicode.com/${this.data}`)
+        axios.get(`https://jsonplaceholder.typicode.com/${this.name}`)
         .then((response) => {
             let datas = response.data;
             
-            this.setState({
-                // datas: get_data(this.data, datas, this.id)
-                datas: datas
-            });
+            // console.log(datas);
 
-            // console.log(this.state.datas);
+            this.setState({
+                datas: get_data(this.name, datas, this.id)
+            });
 
             setTimeout(() => {
                 this.setState({
@@ -81,7 +94,7 @@ export class JsonPlaceholder extends React.Component {
     }
 
     render () {
-        switch (this.data) {
+        switch (this.name) {
             case 'posts':
                 if (this.state.loading) {
                     return <Posts posts={this.state.datas} />

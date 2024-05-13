@@ -3,11 +3,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Header from "./components/layouts/nav"
 
 import Footer from "./components/layouts/footer"
-import User from "./pages/profile"
 import Post from "./pages/post"
 import React, { Suspense } from "react"
 import Photos from "./pages/photos"
-import Loading from "./components/posts/loading"
+import Loading from "./components/loading"
 import Todos from "./pages/todos"
 import Users from "./pages/profile"
 

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
-import SearchAlbum from "../components/albums/search";
-import { JsonPlaceholder } from "../components/post/json-placeholder";
+// import SearchAlbum from "../components/albums/search";
+import { JsonPlaceholder } from "../json-placeholder/json-placeholder";
 
 export default function Albums () {
 
@@ -8,7 +8,7 @@ export default function Albums () {
 
     return <section className="mt-5">
             <div className="row mb-3">
-                <SearchAlbum />
+                {/* <SearchAlbum /> */}
             </div>
             <div className="row">
                 <JsonPlaceholder data='albums' id={userId} />

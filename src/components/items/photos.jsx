@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 export default function ListPhotos ({datas}) {
+    
+    // console.log(datas);
+    
     return <>
     {datas.map((photo, i) => <div key={i} className="col-4 col-sm-3 col-md-2 col-lg-2 d-flex flex-column justify-content-center">
             <div style={{height: '170px'}}><a className="link-secondary">

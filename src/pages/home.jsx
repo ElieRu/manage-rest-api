@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 
-import { JsonPlaceholder } from "../components/post/json-placeholder.jsx";
+import { JsonPlaceholder } from "../json-placeholder/json-placeholder";
 import { useNetworkState } from "@uidotdev/usehooks";
 
 export default function Home () {

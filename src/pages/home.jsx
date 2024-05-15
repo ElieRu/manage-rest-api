@@ -14,13 +14,6 @@ export default function Home () {
                     
                     <JsonPlaceholder data='posts' />
                     
-                    {/* <section className="mt-5">
-                        <div className="container">
-                            <div className="row">
-                                <JsonPlaceholder data='todos' id={1} />
-                            </div>
-                        </div>
-                    </section> */}
                 </div>
             </div>
         </section>

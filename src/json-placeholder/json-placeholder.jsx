@@ -49,10 +49,12 @@ export class JsonPlaceholder extends React.Component {
                         return <Posts posts={this.state.datas} />
                     case 'albums':
                         return <ListAlbums datas={this.state.datas} />
+                    case 'photos':
+                        return <ListPhotos datas={this.state.datas} />
                     case 'todos':
                         return <ListTodos datas={this.state.datas} />
                     default:
-                        return <ListPhotos datas={this.state.datas} />                    
+                        return 'empty'
                 }
             } else {
                 return <Loading />

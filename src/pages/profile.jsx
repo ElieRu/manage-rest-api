@@ -21,6 +21,9 @@ function Users() {
                             </div>
                         </div>
                     </div>
+                    <div className="mt-5">
+                        <JsonPlaceholder data='posts' id={userId} />
+                    </div>
                 </div>
             </section>
         );

@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 
 export default function Posts({posts}) {
+
     // console.log(posts);
+    
     return <div className="row">
                 {posts.map(post => (<div key={post.id} className="col-12 col-md-6 col-lg-4 mb-3">
                     <div className="card">
@@ -19,7 +21,7 @@ export default function Posts({posts}) {
                                     </a>
                                 </div>
                             </div>
-                            <p className="card-text">{post.body}</p>
+                            <p className="card-text">{post.body.length > 70 ? post.body.slice(0,70) + '...' : post.body}</p>
                             <a className="btn btn-primary" href={`post/${post.id}`} role="button">More</a>
                         </div>
                     </div>

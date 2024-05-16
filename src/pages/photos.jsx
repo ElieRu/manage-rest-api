@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import {JsonPlaceholder} from "../json-placeholder/json-placeholder";
+import {JsonPlaceholder} from "../utils/json-placeholder";
 
 export default function Photos () {
     

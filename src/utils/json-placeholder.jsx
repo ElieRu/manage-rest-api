@@ -7,7 +7,8 @@ import ListPhotos from "../components/items/photos";
 import ListTodos from "../components/items/todos";
 import Posts from "../components/items/posts";
 import Loading from "../components/loading";
-import my_filter from "./my_filter";
+import filter from "./switching";
+import PostDescription from "../components/post-description";
 
 
 export class JsonPlaceholder extends React.Component {
@@ -18,6 +19,7 @@ export class JsonPlaceholder extends React.Component {
             loading: false
         }
         this.name = props.data
+        this.unique = props.unique
         this.id = props.id
     }
 
@@ -28,7 +30,7 @@ export class JsonPlaceholder extends React.Component {
             let datas = response.data;
 
             this.setState({
-                datas: my_filter(this.name, datas, this.id)
+                datas: filter(this.name, datas, this.id, this.unique)
             });
 
             setTimeout(() => {
@@ -46,7 +48,11 @@ export class JsonPlaceholder extends React.Component {
             if (this.state.loading) {
                 switch (this.name) {
                     case 'posts':
-                        return <Posts posts={this.state.datas} />
+                        if (Object.keys(this.state.datas).length === 4) {
+                            return <PostDescription post={this.state.datas} />
+                        } else {
+                            return <Posts posts={this.state.datas} />
+                        }
                     case 'albums':
                         return <ListAlbums datas={this.state.datas} />
                     case 'photos':
@@ -60,7 +66,7 @@ export class JsonPlaceholder extends React.Component {
                 return <Loading />
             }
         } else {
-            return <UserDatas datas={this.state.datas} />    
+            return <UserDatas user={this.state.datas} />    
         }
     }
 }

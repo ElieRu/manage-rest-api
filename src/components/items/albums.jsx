@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 export default function ListAlbums ({datas}) {
-    
+    console.log('gg');
     return <>
         {datas.map((album, i) => <div key={i} className="col-4 col-sm-3 col-md-2 col-lg-2 d-flex flex-column justify-content-center">
                 <div style={{height: '170px'}}><a className="link-secondary" style={{textDecoration: 'none'}} href={`/user/albums/photos/${album.id}`}>

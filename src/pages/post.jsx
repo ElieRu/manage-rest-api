@@ -1,7 +1,7 @@
 
 import { useParams } from "react-router-dom";
 import Comments from "../components/comments";
-import { JsonPlaceholder } from "../json-placeholder/json-placeholder.jsx";
+import { JsonPlaceholder } from "../utils/json-placeholder.jsx";
 
 
 export default function Post() {
@@ -12,7 +12,7 @@ export default function Post() {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-6 col-lg-4 mb-3">
-                            <JsonPlaceholder data='posts' id={id} />
+                            <JsonPlaceholder data='posts' unique={true} id={id} />
                         </div>
                         <Comments postId={id} />
                     </div>

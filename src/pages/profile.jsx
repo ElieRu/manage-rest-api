@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import {JsonPlaceholder} from "../json-placeholder/json-placeholder";
+import {JsonPlaceholder} from "../utils/json-placeholder";
 
 
 function Users() {
@@ -10,7 +10,7 @@ function Users() {
                 <div className="container">
                     <div className="row flex-column flex-sm-row">
                         <div className="col-12 col-sm-6 col-md-4">
-                            <JsonPlaceholder data='users' id={userId} />
+                            <JsonPlaceholder data='users' unique={true} id={userId} />
                         </div>
                         <div className="col-12 col-sm-6 col-md-8">
                             <div className="border rounded p-2 mb-2">

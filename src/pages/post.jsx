@@ -14,7 +14,7 @@ export default function Post() {
                         <div className="col-12 col-md-6 col-lg-4 mb-3">
                             <JsonPlaceholder data='posts' unique={true} id={id} />
                         </div>
-                        <Comments postId={id} />
+                        <Comments id={id} />
                     </div>
                 </div>
             </section>

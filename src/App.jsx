@@ -31,6 +31,8 @@ function App() {
           </Route>
 
           <Route path="/post/:id" element={ <Post /> } />
+          
+          <Route path="/user/post/:id" element={ <Post /> } />
 
           <Route path="/user/:id" element={ <Users /> } />
           

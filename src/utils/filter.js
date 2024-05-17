@@ -15,6 +15,7 @@ export default function filter (tabName, tabId, id, datas, unique = false) {
             }
         }
     } else {
+        console.log({datas});
         if (id == null) {
             for (let i = 0; i < datas.length; i++) {
                 data_array.push(datas[i]);

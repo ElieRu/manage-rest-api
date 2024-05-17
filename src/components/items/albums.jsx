@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-export default function ListAlbums ({datas}) {
-    console.log('gg');
+export default function ListAlbums ({albums}) {
+    
     return <>
-        {datas.map((album, i) => <div key={i} className="col-4 col-sm-3 col-md-2 col-lg-2 d-flex flex-column justify-content-center">
+        {albums.map((album, i) => <div key={i} className="col-4 col-sm-3 col-md-2 col-lg-2 d-flex flex-column justify-content-center">
                 <div style={{height: '170px'}}><a className="link-secondary" style={{textDecoration: 'none'}} href={`/user/albums/photos/${album.id}`}>
                         <div className="bg-body-tertiary border rounded d-flex justify-content-center align-items-center" style={{height: '80%'}}>
                             <svg className="fs-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 -32 576 576" width="1em" height="1em" fill="currentColor">

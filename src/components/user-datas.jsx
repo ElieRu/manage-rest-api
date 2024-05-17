@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+// import { useState } from "react";
 
 export default function UserDatas({user}) {
 
@@ -9,7 +9,7 @@ export default function UserDatas({user}) {
     //     setAddress: [...address, user.address]
     // })
     
-    console.log(user);
+    // console.log(user);
     
     // console.log(address);
     

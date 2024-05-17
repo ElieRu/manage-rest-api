@@ -47,3 +47,22 @@
   margin-bottom: 15px;
   font-size: 13px;
 }
+
+/* div... todos */
+
+#div-albums, #div-todos {
+  height: 100px;
+}
+
+#right-comp {
+  margin-top: 30px;
+}
+
+@media (min-width: 500px) {
+  /* #div-albums, #div-todos {
+    height: 49%;
+  } */
+  #right-comp {
+    margin-top: 0px;
+  }
+}

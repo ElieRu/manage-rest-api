@@ -6,6 +6,8 @@ export default function switching (name, datas, id = null, unique) {
     switch (name) {
         case 'posts':
             return filter('posts', 'userId', id, datas, unique);
+        case 'comments':
+            return filter('comments', 'postId', id, datas, unique);
         case 'users':
             return filter('users', 'userId', id, datas, unique);
         case 'albums':

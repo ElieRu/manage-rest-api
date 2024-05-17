@@ -5,10 +5,11 @@ import UserDatas from "../components/user-datas";
 import ListAlbums from "../components/items/albums";
 import ListPhotos from "../components/items/photos";
 import ListTodos from "../components/items/todos";
-import Posts from "../components/items/posts";
 import Loading from "../components/loading";
 import filter from "./switching";
 import PostDescription from "../components/post-description";
+import ListComments from "../components/items/comments";
+import ListPosts from "../components/items/posts";
 
 
 export class JsonPlaceholder extends React.Component {
@@ -51,14 +52,16 @@ export class JsonPlaceholder extends React.Component {
                         if (Object.keys(this.state.datas).length === 4) {
                             return <PostDescription post={this.state.datas} />
                         } else {
-                            return <Posts posts={this.state.datas} />
+                            return <ListPosts posts={this.state.datas} />
                         }
+                    case 'comments':
+                        return <ListComments comments={this.state.datas} />
                     case 'albums':
-                        return <ListAlbums datas={this.state.datas} />
+                        return <ListAlbums albums={this.state.datas} />
                     case 'photos':
-                        return <ListPhotos datas={this.state.datas} />
+                        return <ListPhotos photos={this.state.datas} />
                     case 'todos':
-                        return <ListTodos datas={this.state.datas} />
+                        return <ListTodos todos={this.state.datas} />
                     default:
                         return 'empty'
                 }

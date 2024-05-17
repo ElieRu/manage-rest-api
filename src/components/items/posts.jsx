@@ -2,11 +2,15 @@
 
 import { useLocation } from "react-router-dom"
 
-export default function Posts({posts}) {
+export default function ListPosts({posts}) {
 
     const location = useLocation();
     const currentPath = location.pathname
     const routeName = currentPath.split('/')[1];
+
+    let get_desc = routeName == 'user' ? 'post' : 'post';
+
+    console.log(get_desc);
     
     return <div className="row">
                 {posts.map(post => (<div key={post.id} className="col-12 col-md-6 col-lg-4 mb-3">
@@ -14,7 +18,7 @@ export default function Posts({posts}) {
                         <div className="card-body">
                             <div className="row align-items-center mb-3">
                                 <div className="col-10 d-flex">
-                                    <h4 className="title-post text-capitalize">{post.title.length > 15 ? post.title.slice(0,15) + '...' : post.title}</h4>
+                                    <h4 className="title-post text-capitalize">{post.title.length > 13 ? post.title.slice(0,13) + '...' : post.title}</h4>
                                 </div>
                                 <div className="col-2 d-flex justify-content-start">
                                     <a id="btn-user" className="btn btn-primary btn-sm bg-transparent border rounded-circle border-0 d-flex justify-content-center align-items-center" role="button" 
@@ -26,7 +30,7 @@ export default function Posts({posts}) {
                                 </div>
                             </div>
                             <p className="card-text">{post.body.length > 70 ? post.body.slice(0,70) + '...' : post.body}</p>
-                            <a className="btn btn-primary" href={`post/${post.id}`} role="button">More</a>
+                            <a className="btn btn-primary" href={`${get_desc}/${post.id}`} role="button">More</a>
                         </div>
                     </div>
                 </div>))}

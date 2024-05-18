@@ -9,6 +9,7 @@ import Photos from "./pages/photos"
 import Loading from "./components/loading"
 import Todos from "./pages/todos"
 import Users from "./pages/profile"
+import Pagination from "./pages/pagination"
 
 
 const Home = React.lazy(() => import("./pages/home"))
@@ -29,6 +30,8 @@ function App() {
               <Home/>
             </Suspense> }>
           </Route>
+
+          <Route index path="/pagination" element={<Pagination datas={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]} />} />
 
           <Route path="/post/:id" element={ <Post /> } />
           

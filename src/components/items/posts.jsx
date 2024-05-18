@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 
 import { useLocation } from "react-router-dom"
+import Pagination from "../../pages/pagination";
 
 export default function ListPosts({posts}) {
 
@@ -10,10 +11,10 @@ export default function ListPosts({posts}) {
 
     let get_desc = routeName == 'user' ? 'post' : 'post';
 
-    console.log(get_desc);
+    // console.log(get_desc);
     
     return <div className="row">
-                {posts.map(post => (<div key={post.id} className="col-12 col-md-6 col-lg-4 mb-3">
+                {/* {posts.map(post => (<div key={post.id} className="col-12 col-md-6 col-lg-4 mb-3">
                     <div className="card">
                         <div className="card-body">
                             <div className="row align-items-center mb-3">
@@ -30,9 +31,14 @@ export default function ListPosts({posts}) {
                                 </div>
                             </div>
                             <p className="card-text">{post.body.length > 70 ? post.body.slice(0,70) + '...' : post.body}</p>
-                            <a className="btn btn-primary" href={`${get_desc}/${post.id}`} role="button">More</a>
+                            <a className="btn btn-primary" href={`${get_desc}/${post.id}`} role="button">Comment</a>
                         </div>
                     </div>
-                </div>))}
+                </div>))} */}
+                <div>
+                    <Pagination posts={posts} routeName={routeName} />
+                </div>
             </div>
 }
+
+            

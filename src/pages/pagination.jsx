@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-direct-mutation-state */
 import React from "react"
+import Items from "../components/items"
 
 
 
@@ -8,79 +9,83 @@ class Pagination extends React.Component {
 
     constructor (props) {
         super(props)
-        // this.posts = props.posts
         this.routeName = props.routeName
         this.state = {
             items: [],
-            posts: props.posts
+            posts: props.posts,
+            loading: false
         }
 
-        this.handleOne = this.handleOne.bind(this)
-        this.handleTwo = this.handleTwo.bind(this)
-        this.handleThree = this.handleThree.bind(this)
-        this.handleFour = this.handleFour.bind(this)
-        this.handleFive = this.handleFive.bind(this)
+        this.currentPage = 1
+
+        this.callNextLoading = this.callNextLoading.bind(this)
+        this.nextLoading = this.nextLoading.bind(this)
         this.pages = this.pages.bind(this)
 
-        this.pages(3)
+        this.pages(15)
     }
 
     pages (number) {
         let tempo = []
+        let get_desc = this.state.routeName == 'user' ? 'post' : 'post';
+
         for (let i = 0; i < this.state.posts.length; i++) {
             if (i >= 0 && i < number) {
-                tempo.push(<li key={i}>{i}</li>)
+                tempo.push(<Items key={i} post={this.state.posts[i]} get_desc={get_desc} >{i}</Items>)
             }
         }
         this.state.items = tempo
         return this.state.items
     }
 
-    handleOne () {
-        this.setState({
-            items: this.pages(6)
-        })
+    nextLoading (number) {
+        setTimeout(() => {
+            this.setState({
+                items: this.pages(number),
+                loading: false
+            })
+        }, 1000);
     }
 
-    handleTwo () {
+    callNextLoading () {
         this.setState({
-            items: this.pages(9)
+            loading: true
         })
-    }
-
-    handleThree () {
-        this.setState({
-            items: this.pages(14)
-        })
-    }
-
-    handleFour () {
-        this.setState({
-            items: this.pages(20)
-        })
-    }
-
-    handleFive () {
-        this.setState({
-            items: this.pages(25)
-        })
+        switch (this.currentPage) {
+            case 1:
+                this.currentPage = 2
+                this.nextLoading (30)
+                break;
+            case 2:
+                this.currentPage = 3
+                this.nextLoading (50)
+                break;
+            case 3:
+                this.currentPage = 4
+                this.nextLoading (70)
+                break;
+            case 4:
+                this.currentPage = 5
+                this.nextLoading (90)
+                break;
+            default:
+                this.nextLoading (100)
+                break;
+        }
     }
 
     render () {
 
-        let get_desc = this.state.routeName == 'user' ? 'post' : 'post';
+        return <>
+                
+                {this.state.items}
 
-        return <>                        
-                <div>
-                    <ul>{this.state.items}</ul>
-                </div>
-
-                <div>
-                    <button onClick={this.handleOne} className="btn btn-primary btn-sm">1</button>
-                    <button onClick={this.handleTwo} className="btn btn-primary btn-sm">2</button>
-                    <button onClick={this.handleThree} className="btn btn-primary btn-sm">3</button>
-                    <button onClick={this.handleFour} className="btn btn-primary btn-sm">4</button>
-                    <button onClick={this.handleFive} className="btn btn-primary btn-sm">5</button>
+                <div className="d-flex justify-content-center">
+                    <button onClick={this.callNextLoading} style={{width: '200px'}} className={`btn btn-primary border rounded-pill d-flex justify-content-${this.state.loading ? 'between' : 'center'} align-items-center`}>
+                        {this.state.loading ? <span></span> : '' }
+                        <span style={{fontSize: '13px'}}>Load more</span>
+                        {this.state.loading ? <span className="spinner-border text-light spinner-border-sm" role="status"></span> : ''}
+                    </button>
                 </div>
             </>
     }

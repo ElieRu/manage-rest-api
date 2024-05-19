@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-direct-mutation-state */
 import React from "react"
-import Items from "../components/items"
+import Items from "./items"
 
 
 

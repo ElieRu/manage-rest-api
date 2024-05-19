@@ -9,7 +9,8 @@ import Photos from "./pages/photos"
 import Loading from "./components/loading"
 import Todos from "./pages/todos"
 import Users from "./pages/profile"
-import Pagination from "./pages/pagination"
+import NotFound from "./pages/404"
+import About from "./pages/about"
 
 
 const Home = React.lazy(() => import("./pages/home"))
@@ -30,8 +31,6 @@ function App() {
               <Home/>
             </Suspense> }>
           </Route>
-
-          <Route index path="/pagination" element={<Pagination datas={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]} />} />
 
           <Route path="/post/:id" element={ <Post /> } />
           
@@ -55,6 +54,14 @@ function App() {
             <Suspense fallback={<div style={{marginTop: '200px'}}>Loading...</div>}>
               <Todos/>
             </Suspense>
+          }> </Route>
+
+          <Route path="/about" element={ 
+            <About/>
+          }> </Route>
+
+          <Route path="*" element={ 
+            <NotFound/>
           }> </Route>
           
         </Routes>

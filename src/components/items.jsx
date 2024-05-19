@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 
 
-export default function Items({post}, get_desc) { 
+export default function Items({post, get_desc}) { 
 
-    // console.log(post);
+    console.log(get_desc);
     
     return (<div className="col-12 col-md-6 col-lg-4 mb-3">
     <div className="card">

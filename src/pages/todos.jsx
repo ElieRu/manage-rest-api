@@ -6,10 +6,6 @@ export default function Todos () {
     let userId = JSON.parse(useParams().userId)
 
     return <section className="mt-5">
-            <div className="container">
-                <div className="row">
-                    <JsonPlaceholder data='todos' id={userId} />
-                </div>
-            </div>
+                <JsonPlaceholder data='todos' id={userId} />
         </section>
 }

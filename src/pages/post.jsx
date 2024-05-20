@@ -1,6 +1,6 @@
 
 import { useParams } from "react-router-dom";
-import Comments from "../components/comments";
+import Comments from "../components/other/comments";
 import { JsonPlaceholder } from "../utils/json-placeholder.jsx";
 
 

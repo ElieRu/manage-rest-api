@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { JsonPlaceholder } from "../utils/json-placeholder";
+import { JsonPlaceholder } from "../../utils/json-placeholder";
 
 
 export default function Comments () {

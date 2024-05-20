@@ -1,17 +1,6 @@
-/* eslint-disable react/prop-types */
-
-// import { useState } from "react";
+/* eslint-disable react/prop-types */     
 
 export default function UserDatas({user}) {
-
-    // let [address, setAddress] = useState(user.address)
-    // setAddress({
-    //     setAddress: [...address, user.address]
-    // })
-    
-    // console.log(user);
-    
-    // console.log(address);
     
     return <div className="bg-secondary-subtle border rounded border-0 shadow d-flex flex-column justify-content-center align-items-center p-2">
                 <div className="d-flex justify-content-center align-items-center" style={{width: '150px',height: '150px',marginTop: '20px',marginBottom: '20px'}}>
@@ -46,14 +35,6 @@ export default function UserDatas({user}) {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="d-flex flex-column" id="div-add"><span className="text-primary-emphasis">Adresse</span>
-                <div>
-                    {/* {Object.keys(user.address).map((key) => (<span key={key} id="text-add" className="bg-primary border rounded-pill">city : </span>))} */}
-                </div>
-            </div>
-            <div className="d-flex flex-column" id="div-com"><span className="text-primary-emphasis">Company</span>
-                <div><span id="text-add" className="bg-primary border rounded-pill">Text</span></div>
             </div>
         </div>
 }

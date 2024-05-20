@@ -1,16 +1,15 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Header from "./components/layouts/nav"
+import Header from "./components/layouts/header"
 
 import Footer from "./components/layouts/footer"
 import Post from "./pages/post"
 import React, { Suspense } from "react"
 import Photos from "./pages/photos"
-import Loading from "./components/loading"
+import Loading from "./components/other/loading"
 import Todos from "./pages/todos"
 import Users from "./pages/profile"
-import Pagination from "./pages/pagination"
-
+import NotFound from "./pages/404"
 
 const Home = React.lazy(() => import("./pages/home"))
 const Albums = React.lazy(() => import("./pages/albums"))
@@ -24,39 +23,14 @@ function App() {
       <div className="content">
         <BrowserRouter>
         <Routes>
-
-          <Route index path="/" element={
-            <Suspense fallback={<Loading/>}>
-              <Home/>
-            </Suspense> }>
-          </Route>
-
-          <Route index path="/pagination" element={<Pagination datas={[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]} />} />
-
+          <Route index path="/" element={ <Home/> } />
           <Route path="/post/:id" element={ <Post /> } />
-          
           <Route path="/user/post/:id" element={ <Post /> } />
-
           <Route path="/user/:id" element={ <Users /> } />
-          
-          <Route path="/user/albums/:id" element={ 
-            <Suspense fallback={<div style={{marginTop: '200px'}}>Loading...</div>}>
-              <Albums/>
-            </Suspense>
-          }> </Route>
-
-          <Route path="/user/albums/photos/:id" element={ 
-            <Suspense fallback={<div style={{marginTop: '200px'}}>Loading...</div>}>
-              <Photos/>
-            </Suspense>
-          }> </Route>
-
-          <Route path="/user/todos/:userId" element={ 
-            <Suspense fallback={<div style={{marginTop: '200px'}}>Loading...</div>}>
-              <Todos/>
-            </Suspense>
-          }> </Route>
-          
+          <Route path="/user/albums/:id" element={ <Albums/> }> </Route>
+          <Route path="/user/albums/photos/:id" element={ <Photos/> }> </Route>
+          <Route path="/user/todos/:userId" element={ <Todos/> }> </Route>
+          <Route path="*" element={ <NotFound/> }> </Route>
         </Routes>
       </BrowserRouter>
       </div>

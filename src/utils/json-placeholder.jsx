@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 import axios from "axios";
 import React from "react";
-import UserDatas from "../components/user-datas";
+import UserDatas from "../components/other/user-datas";
 import ListAlbums from "../components/items/albums";
 import ListPhotos from "../components/items/photos";
 import ListTodos from "../components/items/todos";
-import Loading from "../components/loading";
+import Loading from "../components/other/loading";
 import filter from "./switching";
-import PostDescription from "../components/post-description";
+import PostDescription from "../components/other/post-description";
 import ListComments from "../components/items/comments";
 import ListPosts from "../components/items/posts";
 

@@ -13,11 +13,11 @@ function Users() {
                     </div>
                     <div id="right-comp" className="col-12 col-sm-6 col-md-8">
                         <div id="div-albums" style={{height: '160px'}} className="mb-2" >
-                            <img className="border border rounded shadow" style={{width: '100%',height: '100%'}} src="../src/assets/img/albums.jpeg" />
+                            <img className="border border rounded shadow" style={{width: '100%',height: '100%'}} src="https://raw.githubusercontent.com/ElieRu/manage-rest-api/main/src/assets/img/albums.jpeg" />
                             <a type="button" className="btn btn-primary btn-sm bg-light text-primary border rounded" style={{position: 'relative', top: '-150px', right: '-20px'}} href={`albums/${userId}/`}>All albums</a>
                         </div>
                         <div id="div-todos" style={{height: '160px'}} >
-                            <img className="border border rounded shadow" style={{width: '100%',height: '100%'}} src="../src/assets/img/photos.jpeg" />
+                            <img className="border border rounded shadow" style={{width: '100%',height: '100%'}} src="https://raw.githubusercontent.com/ElieRu/manage-rest-api/main/src/assets/img/photos.jpeg" />
                             <a type="button" className="btn btn-primary btn-sm bg-light text-primary border rounded" style={{position: 'relative', top: '-150px', right: '-20px'}} href={`todos/${userId}/`}>My Todos</a>
                         </div>
                     </div>

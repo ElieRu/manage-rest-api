@@ -4,14 +4,13 @@
 ## Built with
 
  - [Bootstrap](https://getbootstrap.com/)
- - [Javascript](https://developer.mozilla.org/en-US/)
  - [React](https://react.dev/)
+ - [Json placeholder](https://jsonplaceholder.typicode.com/)
 
 ## Features
 
  - [Babel](https://babeljs.io/)
  - [Bootstrap studio](https://bootstrapstudio.io/)
- - [Json placeholder](https://jsonplaceholder.typicode.com/)
  - [Axios](https://axios-http.com/)
 
 ## Live demo

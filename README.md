@@ -1,5 +1,5 @@
 # About
-[Manage-rest-api](https://manage-rest-api.netlify.app/) is a test project that allows retrieving information from the [json-placeholder](https://jsonplaceholder.typicode.com/) api in order to use them project which use fake informations from.
+[Manage-rest-api](https://manage-rest-api.netlify.app/) is a test project that allows retrieving information from the [json-placeholder](https://jsonplaceholder.typicode.com/) api in order to use them.
 
 ## Built with
 

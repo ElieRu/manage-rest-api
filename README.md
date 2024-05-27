@@ -22,7 +22,7 @@
  1. [Clone](https://github.com/ElieRu/manage-rest-api.git) or [download](https://github.com/ElieRu/manage-rest-api/archive/refs/heads/main.zip) the repository
  2. Install dependencies with `npm install`
  3. Run with `npm run dev`
- 4. Open http://localhost:5173/ port
+ 4. Open http://localhost:5173/
 
 ## Author
 
